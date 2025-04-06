@@ -51,8 +51,9 @@ function cycleSpeedDown() {
 // Setup keyboard shortcuts
 function setupKeyboardShortcuts() {
     window.addEventListener('keydown', function (event) {
-        // Use the modifier key from settings
-        const modifierActive = settings.modifierKey === 'ctrl' ? event.ctrlKey : event.shiftKey;
+        // Use the modifier key from settings, or consider it active if set to 'none'
+        const modifierActive = settings.modifierKey === 'none' ? true :
+            (settings.modifierKey === 'ctrl' ? event.ctrlKey : event.shiftKey);
 
         // Speed up shortcut
         if (modifierActive && event.key === settings.speedUpKey) {
