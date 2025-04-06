@@ -1,0 +1,146 @@
+:root {
+    --primary-bg: #1e1e2e;
+    --secondary-bg: #2a2a3a;
+    --accent-color: #7289da;
+    --text-color: #e2e2e2;
+    --input-bg: #33334d;
+    --button-hover: #5d70b5;
+    --border-color: #3f3f5f;
+    --success-color: #43b581;
+    --error-color: #f04747;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--primary-bg);
+    color: var(--text-color);
+}
+
+.container {
+    width: 320px;
+    padding: 16px;
+}
+
+h1 {
+    font-size: 18px;
+    margin-bottom: 16px;
+    text-align: center;
+    color: var(--accent-color);
+}
+
+h2 {
+    font-size: 16px;
+    margin-bottom: 12px;
+    color: var(--text-color);
+}
+
+.setting-group {
+    background-color: var(--secondary-bg);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.setting-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.setting-row:last-child {
+    margin-bottom: 0;
+}
+
+label {
+    font-size: 14px;
+}
+
+input,
+select {
+    background-color: var(--input-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    color: var(--text-color);
+    padding: 8px;
+    width: 120px;
+    outline: none;
+    transition: border 0.2s;
+}
+
+input:focus,
+select:focus {
+    border-color: var(--accent-color);
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.button-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+button {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    flex: 1;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: var(--button-hover);
+}
+
+#reset-btn {
+    background-color: var(--secondary-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+}
+
+#reset-btn:hover {
+    background-color: var(--input-bg);
+}
+
+.status-message {
+    text-align: center;
+    font-size: 14px;
+    min-height: 20px;
+    padding: 4px 0;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.status-message.show {
+    opacity: 1;
+}
+
+.status-message.success {
+    color: var(--success-color);
+}
+
+.status-message.error {
+    color: var(--error-color);
+}
