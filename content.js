@@ -70,6 +70,16 @@ function setupKeyboardShortcuts() {
 
 // Intercept button clicks
 function interceptSpeedButton() {
+    // Prevent context menu on speed button
+    document.addEventListener('contextmenu', function (event) {
+        const button = event.target.closest('button[aria-label="Video playback rate switcher"]');
+        if (button) {
+            event.preventDefault();
+            cycleSpeedDown();
+            return false;
+        }
+    }, true);
+
     document.addEventListener('click', function (event) {
         const button = event.target.closest('button[aria-label="Video playback rate switcher"]');
         if (button) {
@@ -78,10 +88,7 @@ function interceptSpeedButton() {
             // Use our custom cycling instead
             if (event.button === 0) {
                 cycleSpeedUp();
-            } else if (event.button === 2) {
-                cycleSpeedDown();
             }
-
             return false;
         }
     }, true);
